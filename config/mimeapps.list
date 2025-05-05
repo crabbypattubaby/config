@@ -1,0 +1,11 @@
+[Added Associations]
+application/vnd.oasis.opendocument.text=libreoffice-3.desktop;libreoffice.desktop;
+application/vnd.openxmlformats-officedocument.wordprocessingml.document=libreoffice-2.desktop;
+text/css=nvim-2.desktop;
+text/plain=gedit.desktop;
+
+[Default Applications]
+application/vnd.oasis.opendocument.text=libreoffice-3.desktop;
+application/vnd.openxmlformats-officedocument.wordprocessingml.document=libreoffice-2.desktop;
+text/css=nvim-2.desktop;
+text/plain=gedit.desktop;

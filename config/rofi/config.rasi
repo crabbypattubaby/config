@@ -1,0 +1,87 @@
+configuration {
+  display-drun: "Applications:";
+  display-window: "Windows:";
+  display-run: "Run:";
+  drun-display-format: "{icon} {name}";
+  font: "Hack Nerd Font Mono 10";
+  modi: "window,run,drun,emoji:rofimoji";
+  show-icons: true;
+  icon-theme: "noto-fonts-emoji";
+  dpi: 157;
+  terminal: "kitty";
+  hide-scrollbar: true;
+  window-format: "{w} {c} {t}";
+}
+@theme "/dev/null"
+* {
+  bg: #11121D;
+  bg-alt: #444b6a;
+  fg: #FFFFFF;
+  fg-alt: #787c99;
+  background-color: @bg;
+  font-color: #FFFFFF;
+ 
+  border: 0;
+  margin: 0;
+  padding: 0;
+  spacing: 0;
+}
+window {
+  width: 45%;
+  border-radius: 6px;
+  background-color: @bg;
+  border: 2px;
+  border-color: @bg-alt;
+  location: center;
+  x-offset: 0;
+  y-offset: 0;
+  transparency: "real";
+}
+element {
+  padding: 8;
+  text-color: @fg-alt;
+  border-radius: 3px;
+  margin: 1px 0;
+}
+element selected {
+  text-color: @fg;
+  background-color: @bg-alt;
+  border-radius: 4px;
+}
+element-text {
+  background-color: inherit;
+  text-color: inherit;
+  vertical-align: 0.5;
+}
+element-icon {
+  size: 24;
+  background-color: transparent;
+  padding: 0 8px 0 0;
+}
+entry {
+  background-color: @bg-alt;
+  padding: 8;
+  text-color: @fg;
+  border-radius: 3px;
+  margin: 4px;
+}
+prompt {
+  background-color: @bg-alt;
+  enabled: true;
+  padding: 8;
+  text-color: @fg;
+  border-radius: 3px;
+  margin: 4px 0 4px 4px;
+}
+inputbar {
+  children: [prompt, entry];
+  padding: 4px;
+  margin: 4px;
+  background-color: @bg;
+  spacing: 4px;
+}
+listview {
+  background-color: @bg;
+  columns: 1;
+  lines: 8;
+}

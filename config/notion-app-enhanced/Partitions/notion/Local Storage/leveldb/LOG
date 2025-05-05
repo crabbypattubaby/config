@@ -1,0 +1,5 @@
+2025/05/04-09:48:45.706 26653 Reusing MANIFEST /home/udayl/.config/notion-app-enhanced/Partitions/notion/Local Storage/leveldb/MANIFEST-000001
+2025/05/04-09:48:45.709 26653 Recovering log #4
+2025/05/04-09:48:45.717 26653 Level-0 table #7: started
+2025/05/04-09:48:45.732 26653 Level-0 table #7: 319455 bytes OK
+2025/05/04-09:48:45.739 26653 Delete type=0 #4

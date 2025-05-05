@@ -1,0 +1,57 @@
+window {
+  background: transparent;
+  border: none;
+  border-radius: 16px;
+}
+
+.system-info {
+  background-color: rgba(30, 30, 46, 0.85);
+  border-radius: 18px;
+  padding: 15px;
+  color: #cdd6f4;
+  font-family: monospace;
+}
+
+.time {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.date {
+  font-size: 14px;
+  color: #a6adc8;
+  margin-bottom: 5px;
+}
+
+.metric {
+  padding: 3px 0;
+}
+
+.label {
+  min-width: 40px;
+  font-weight: bold;
+}
+
+.progressbar {
+  min-width: 150px;
+  margin: 0 10px;
+  border-radius: 10px;
+  background-color: rgba(80, 80, 100, 0.4);
+}
+
+.progressbar trough {
+  background-color: rgba(80, 80, 100, 0.4);
+  border-radius: 10px;
+  min-height: 10px;
+}
+
+.progressbar progress {
+  background-color: #5294e2;
+  border-radius: 10px;
+  min-height: 10px;
+}
+
+.value {
+  min-width: 70px;
+  color: #a6adc8;
+}

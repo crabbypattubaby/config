@@ -1,0 +1,68 @@
+(defpoll time :interval "1s"
+  "date '+%I:%M:%S %p'")
+
+(defpoll date :interval "100s"
+  :initial "Jan 01"
+  "date '+%b %d'")
+
+(defpoll memory :interval "0.5s"
+  "free -m | grep Mem | awk '{printf \"%.1f/%.1f\", ($3/1024), ($2/1024)}'")
+
+(defpoll memory_perc :interval "0.5s"
+  "free | grep Mem | awk '{printf \"%.1f\", $3/$2 * 100}'")
+
+(defpoll cpu_usage :interval "0.5s"
+  "top -bn1 | grep 'Cpu(s)' | awk '{print $2 + $4}'")
+
+(defpoll volume :interval "0.5s"
+  "wpctl get-volume @DEFAULT_AUDIO_SINK@ | awk '{print int($2*100)}'")
+
+(defpoll volume_muted :interval "0.5s"
+  "wpctl get-volume @DEFAULT_AUDIO_SINK@ | grep -q MUTED && echo 'true' || echo 'false'")
+
+(defwindow system-monitor
+  :monitor 0
+  :geometry (geometry
+              :anchor "top left"
+              :x "10px"
+              :y "10px"
+              :width "300px"
+              :height "130px")
+  :stacking "bottom"
+  :exclusive false
+  :focusable false
+  :windowtype "dock"
+  (system-info))
+
+(defwidget system-info []
+  (box :orientation "vertical"
+       :space-evenly false
+       :spacing 10
+       :class "system-info"
+    (label :text date :class "date")
+    (label :text time :class "time")
+    (system-stats)))
+
+
+(defwidget system-stats []
+  (box :orientation "vertical"
+       :space-evenly false
+       :spacing 8
+    (metric :label "CPU"
+            :value "${round(cpu_usage, 1)}%"
+            :percentage cpu_usage)
+    (metric :label "MEM"
+            :value "${memory}GB" 
+            :percentage memory_perc)
+    (metric :label "VOL"
+            :value "${volume_muted == 'true' ? 'Muted' : volume + '%'}"
+            :percentage {volume_muted == 'true' ? 0 : volume})))
+
+(defwidget metric [label value percentage]
+  (box :orientation "horizontal"
+       :class "metric"
+       :space-evenly false
+    (box :class "label" label)
+    (progress :value percentage
+              :class "progressbar")
+    (box :class "value" value)))
